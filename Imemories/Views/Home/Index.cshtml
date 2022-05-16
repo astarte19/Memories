@@ -1,0 +1,150 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Memories</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/main/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/main/animate.css">
+    
+    <link rel="stylesheet" href="~/css/main/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/main/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/main/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/main/css/aos.css">
+
+    <link rel="stylesheet" href="~/css/main/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/main/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/css/main/jquery.timepicker.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="~/css/main/flaticon.css">
+    <link rel="stylesheet" href="~/css/main/icomoon.css">
+    <link rel="stylesheet" href="~/css/main/style.css">
+  </head>
+  <body>
+    
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="#">Memories.<span></span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <i class="fa-solid fa-bars"></i> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ml-auto">
+                  @if (User.Identity.IsAuthenticated)
+                  {
+                                              
+                      <li class="nav-item active">@User.Identity.Name</li>
+                      
+                      <form method="post" asp-controller="Account" asp-action="Logout">
+                         
+                          <input class="logout_button" value="Выйти" type="submit"/> 
+                         
+                      </form>
+                      
+                  
+                  }
+                  else
+                  {
+                      <li class="nav-item active"><a  class="nav-link">Home</a></li>
+                      <li class="nav-item cta mr-md-2"><a asp-controller="Account" asp-action="Login" class="nav-link">Вход</a></li>
+                      <li class="nav-item cta mr-md-2"><a asp-controller="Account" asp-action="Register" class="nav-link">Регистрация</a></li>
+                  }
+                 
+              </ul>
+             
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="hero-wrap js-fullheight" style="background-image: url('images/main/bg_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+                <div class="col-xl-10 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                   
+                    <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Вы ничего не добавили!</p>
+           
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="hero-wrap js-fullheight" style="background-image: url('images/main/bg_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+                <div class="col-xl-10 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                    <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"> Memories <br><span>Капсула времени</span></h1>
+                    <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Сохраните памятные события своей жизни</p>
+           
+                </div>
+            </div>
+        </div>
+    </div>
+}
+    
+   	
+  
+
+    
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+      <div class="row mb-5">
+          <div class="col-md">
+              <div class="ftco-footer-widget mb-4">
+                  <h2 class="ftco-heading-2">Memories</h2>
+                  <p>&quot; Жизнь измеряется происходившими событиями.</p>
+                  <p>Радостные или грустные события, не важно.</p>
+                  <p>Главное сохранить память о них. &quot;</p>
+                  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                      Copyright &copy;<script>document.write(new Date().getFullYear());</script> Все права защищены
+                      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                  
+              </div>
+          </div>
+      </div>
+      </div>
+    </footer>
+    
+  
+
+  
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="~/js/main/jquery.min.js"></script>
+    <script src="~/js/main/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/js/main/popper.min.js"></script>
+    <script src="~/js/main/bootstrap.min.js"></script>
+    <script src="~/js/main/jquery.easing.1.3.js"></script>
+    <script src="~/js/main/jquery.waypoints.min.js"></script>
+    <script src="~/js/main/jquery.stellar.min.js"></script>
+    <script src="~/js/main/owl.carousel.min.js"></script>
+    <script src="~/js/main/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/main/aos.js"></script>
+    <script src="~/js/main/jquery.animateNumber.min.js"></script>
+    <script src="~/js/main/bootstrap-datepicker.js"></script>
+    <script src="~/js/main/jquery.timepicker.min.js"></script>
+    <script src="~/js/main/scrollax.min.js"></script>
+  <script src="~/js/main/main.js"></script>
+    
+  </body>
+</html>
