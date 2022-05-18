@@ -1,5 +1,5 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
+@model IEnumerable<Imemories.Models.Post>
 
 <!---->
 <!DOCTYPE html>
@@ -71,21 +71,58 @@
     
 @if (User.Identity.IsAuthenticated)
 {
-    
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/main/bg_1.jpg');" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-                <div class="col-xl-10 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                   
-                    <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Вы ничего не добавили!</p>
-           
-                </div>
-            </div>
-        </div>
-    </div>
-   
     <a asp-controller="Post" asp-action="CreatePost">Добавить</a>
+    <table class="container">
+        <thead>
+        <tr>
+            <th>
+                <div class="name_cell">
+                    <h1>Image</h1>
+                </div>
+            </th>
+            <th>
+                    
+                <div class="name_cell">
+                    <h1>Text</h1>
+                </div>
+            </th>
+            <th>
+                    
+                <div class="name_cell">
+                    <h1>Audio</h1>
+                </div>
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+
+                <td>
+                    @item.ImagePath
+                </td>
+                <td>
+                    @item.Text
+                </td>
+                <td>
+                    @item.AudioPath
+                </td>
+                <td>
+                    <a asp-controller="Post" asp-action="EditPost" asp-route-id="@item.Id" class="post_edit">Edit</a> |
+                    <a asp-controller="Post" asp-action="DeletePost" asp-route-id="@item.Id" class="post_delete">Delete</a>
+                </td>
+
+            </tr>
+        }
+
+        </tbody>
+    </table>
+   
+    
     
 }
 else
