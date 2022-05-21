@@ -60,7 +60,6 @@
 /Users/swiperrr/RiderProjects/Imemories/Imemories/bin/Debug/net5.0/Humanizer.dll
 /Users/swiperrr/RiderProjects/Imemories/Imemories/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll
 /Users/swiperrr/RiderProjects/Imemories/Imemories/obj/Debug/net5.0/Razor/Views/Account/Login.cshtml.g.cs
-/Users/swiperrr/RiderProjects/Imemories/Imemories/obj/Debug/net5.0/Razor/Views/Post/ShowPost.cshtml.g.cs
 /Users/swiperrr/RiderProjects/Imemories/Imemories/bin/Debug/net5.0/EntityFramework.SqlServer.dll
 /Users/swiperrr/RiderProjects/Imemories/Imemories/bin/Debug/net5.0/EntityFramework.dll
 /Users/swiperrr/RiderProjects/Imemories/Imemories/bin/Debug/net5.0/System.Data.SQLite.dll

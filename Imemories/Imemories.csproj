@@ -27,6 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="wwwroot\File" />
       <Folder Include="wwwroot\fonts\main" />
     </ItemGroup>
 
