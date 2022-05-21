@@ -1,0 +1,35 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Imemories.Models.Post
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Todos - Edit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="~/css/finance_create.css" asp-append-version="true" />
+
+</head>
+<body>
+<form asp-controller="Post" asp-action="EditPost">
+    <h1>Edit</h1>
+    <input type="hidden" asp-for="Id" />
+    <div class="question">
+        <label>Title</label>
+                <input asp-for="Title" type="text" required />
+        <label>Image</label>
+        <input  name="Photo" type="file" class="form-control" required/>
+        <label>Text</label>
+                <input asp-for="Text" type="text" />
+                <label>Time</label>
+                                        <input asp-for="Time" type="datetime-local" />
+        <label>Audio</label>
+        <input asp-for="AudioPath" type="text" />
+    </div>
+
+    <button type="submit">Submit</button>
+    
+</form>
+</body>
+</html>
