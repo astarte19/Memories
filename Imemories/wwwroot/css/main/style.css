@@ -7488,6 +7488,7 @@ h1, h2, h3, h4, h5,
     bottom: 0;
     content: '';
     opacity: .08;
+    
     background: #000000;
     background: #6b75ff;
     background: -moz-linear-gradient(45deg, #6b75ff 0%, #6b75ff 0%, #59b7ff 100%);
@@ -8904,13 +8905,12 @@ textarea.form-control {
 
 
 
-.logout_button{
-  color: white;
-  background-color: #6b76ff;
-  border: none;
-  border-radius: 5px;
-  height: 30px;
-  width: 100px;
+.logout_btn{
+  font-size: 18px;
   margin-left: 15px;
 }
+
+
+
+
 

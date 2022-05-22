@@ -4,31 +4,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Todos - Create</title>
+    <title>Memories</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="~/css/finance_create.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/post/create.css" asp-append-version="true" />
 
 </head>
 <body>
-<form asp-controller="Post" asp-action="CreatePost" enctype="multipart/form-data">
-    <h1>Create</h1>
-    <div class="question">
-        <label>Title</label>
-                <input asp-for="Title" type="text" required />
-        <label>Image</label>
-        <input name="Photo" type="file" class="form-control" />
-        <label>Text</label>
-                <input asp-for="Text" type="text" />
-                <label>Time</label>
-                        <input asp-for="Time" type="datetime-local" />
-        <label>Audio</label>
-        <input asp-for="AudioPath" type="text" />
-    </div>
 
-    <button type="submit">Submit</button>
-   
-</form>
+
+<div class="container">
+    <div class="container-close"><a asp-controller="Home" asp-action="Index" class="close_create">&times;</a></div>
+    <img
+      src="https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+      alt="image">
+    <div class="container-text">
+      <h2>Добавление записи</h2>
+        <form asp-controller="Post" asp-action="CreatePost" enctype="multipart/form-data">
+            <input asp-for="Title" type="text" required placeholder="Заголовок" required>
+                  <input name="Photo" type="file" required>
+                  <input asp-for="Text" type="text" placeholder="Текст" >
+                  <input asp-for="AudioPath" type="text" placeholder="Аудиозапись">
+                  <input asp-for="Time" type="datetime-local" placeholder="Время" required>
+                  <button type="submit">Добавить</button>
+        </form>
+      
+      
+    </div>
+  </div>
+
+
+
+
 </body>
 </html>

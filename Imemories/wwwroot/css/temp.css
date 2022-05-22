@@ -10,14 +10,18 @@
     }
 }
 */
+.post_image{
 
+    max-width: 512px;
+    max-height: 512px;
+    
+}
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
     .post_image{
 
         max-width: 512px;
-        justify-content: center;
-        align-items: center;
+        max-height: 512px;
     }
 }
 
@@ -26,6 +30,7 @@
     .post_image{
 
         max-width: 512px;
+        max-height: 512px;
         justify-content: center;
         align-items: center;
     }
@@ -36,6 +41,7 @@
     .post_image{
 
         max-width: 512px;
+        max-height: 512px;
         justify-content: center;
         align-items: center;
     }
@@ -46,6 +52,7 @@
     .post_image{
 
         max-width: 512px;
+        max-height: 512px;
         justify-content: center;
         align-items: center;
     }
@@ -56,6 +63,7 @@
     .post_image{
 
         max-width: 355px;
+        max-height: 355px;
         justify-content: center;
         align-items: center;
     }
@@ -66,6 +74,7 @@
     .post_image{
 
         max-width: 240px;
+        max-height: 240px;
         justify-content: center;
         align-items: center;
     }
@@ -85,23 +94,102 @@
 .post_edit{
     text-decoration: none;
     color: #1e7e34;
-    font-size: 8px !important;
+    font-size: 16px !important;
 }
 .post_delete{
     text-decoration: none;
     color: #b21f2d;
-    font-size: 8px !important;
+    font-size: 16px !important;
 }
 .title_settings{
-    display: inline-block;
-    align-items: start;
-    align-content: start;
-    justify-content: start;
+    
+    
     
 }
 
 .add_btn{
-    position: absolute;
-   left: 50%;
+   margin-left: 17%;
+    margin-top: 5%;
+    
     
 }
+
+/*ADDBTN*/
+.container_btn_add {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: none;
+    padding:  0px;
+    width: 240px;
+}
+
+
+.btn_add {
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 45px;
+    max-width: 160px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+}
+.btn_add:hover {
+    text-decoration: none;
+}
+
+/*btn_background*/
+.effect04 {
+    --uismLinkDisplay: var(--smLinkDisplay, inline-flex);
+    display: var(--uismLinkDisplay);
+    color: #6C63FF;
+    outline: solid  2px #6C63FF;
+    position: relative;
+    transition-duration: 0.4s;
+    overflow: hidden;
+}
+
+.effect04::before,
+.effect04 span{
+    margin: 0 auto;
+    transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+    transition-duration: 0.4s;
+}
+
+/* 文字1を上に */
+.effect04:hover{
+
+    background-color: #4842AC;
+}
+
+/* HOVERしたら文字1を上に */
+.effect04:hover span{
+    -webkit-transform: translateY(-400%) scale(-0.1,20);
+    transform: translateY(-400%) scale(-0.1,20);
+}
+
+/*文字2*/
+.effect04::before{
+    content: attr(data-sm-link-text);
+    color: #FFF;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    -webkit-transform: translateY(500%) scale(-0.1,20);
+    transform: translateY(500%) scale(-0.1,20);
+}
+
+/* HOVERしたら文字2を上に */
+.effect04:hover::before{
+    letter-spacing: 0.05em;
+    -webkit-transform: translateY(0) scale(1,1);
+    transform: translateY(0) scale(1,1);
+}
+
+
