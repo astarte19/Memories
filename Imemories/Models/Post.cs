@@ -10,7 +10,7 @@ namespace Imemories.Models
         
         public string Title { get; set; }
         public string Text { get; set; }
-        public string AudioPath { get; set; }
+        public byte[] AudioPath { get; set; }
         
         public byte[] Photo { get; set; }
         

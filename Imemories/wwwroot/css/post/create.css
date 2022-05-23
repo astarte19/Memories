@@ -16,7 +16,7 @@ body {
 .container {
     background-color: #fff;
     width: 600px;
-    height: 450px;
+    height: 750px;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;

@@ -1,4 +1,5 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using System.Globalization
 @model IEnumerable<Imemories.Models.Post>
 
 <!---->
@@ -113,7 +114,9 @@ function submitform()
         
         @foreach (var item in Model)
         {
-        
+            CultureInfo ruRu = new CultureInfo("ru-RU");
+           
+            
             
         
         
@@ -123,30 +126,36 @@ function submitform()
                
                 <div class="container">
                     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+                        
                         <div class="col-xl-10 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
                             <div class="title_settings">
                                 <h2 class="mb-4" data-scrollax="properties: { translateY: '10%', opacity: 1.6 }"> @item.Title <a asp-controller="Post" asp-action="DeletePost" asp-route-id="@item.Id" class="post_delete"><i class="fa-solid fa-trash-can"></i></a> </h2>
-                                
-                                 <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">@item.Time</p>
-                             <!--   <a asp-controller="Post" asp-action="EditPost" asp-route-id="@item.Id" class="post_edit"><i class="fa-solid fa-pen"></i></a> -->
+
+                                <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"> @item.Time.ToString("D", ruRu) | @item.Time.ToShortTimeString()</p>
+                                <!--   <a asp-controller="Post" asp-action="EditPost" asp-route-id="@item.Id" class="post_edit"><i class="fa-solid fa-pen"></i></a> -->
                             </div>
-                            
+
                             <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Photo))" class="post_image">
                             <div class="post_subtitle">
                                 <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">@item.Text
                                 </p>
 
                             </div>
-                            <div class="audio_post">
-                                <audio controls >
-             
-                                    <source src="~/track.mp3" type="audio/mpeg">
-               
-                                </audio>
-                            </div>
-                            
-                            
-            
+                            @if (item.AudioPath != null)
+                            {
+                                <div class="audio_post">
+                                    <audio controls>
+
+                                        <source src="data:audio/mpeg;base64,@(Convert.ToBase64String(item.AudioPath))" type="audio/mpeg">
+
+                                    </audio>
+                                </div>
+                            }
+
+
+
+
+
                         </div>
                     </div>
                 </div>

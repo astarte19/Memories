@@ -44,7 +44,7 @@ namespace Imemories.Controllers
             
                 Post item = new Post()
                 {
-                    Title = pvm.Title, Text = pvm.Text, AudioPath = pvm.AudioPath, Time = pvm.Time
+                    Title = pvm.Title, Text = pvm.Text,  Time = pvm.Time
                 };
                 //
                 if (pvm.Photo != null)
@@ -57,6 +57,18 @@ namespace Imemories.Controllers
                     }
                     // установка массива байтов
                     item.Photo = imageData;
+                    
+                }
+                if (pvm.AudioPath != null)
+                {
+                    byte[] audioData = null;
+                    // считываем переданный файл в массив байтов
+                    using (var binaryReader = new BinaryReader(pvm.AudioPath.OpenReadStream()))
+                    {
+                        audioData = binaryReader.ReadBytes((int)pvm.AudioPath.Length);
+                    }
+                    // установка массива байтов
+                    item.AudioPath = audioData;
                     
                 }
                 context.Add(item);

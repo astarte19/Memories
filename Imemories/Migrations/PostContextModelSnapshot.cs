@@ -22,8 +22,8 @@ namespace Imemories.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("AudioPath")
-                        .HasColumnType("TEXT");
+                    b.Property<byte[]>("AudioPath")
+                        .HasColumnType("BLOB");
 
                     b.Property<byte[]>("Photo")
                         .HasColumnType("BLOB");
