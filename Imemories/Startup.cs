@@ -28,8 +28,7 @@ namespace Imemories
         {
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<PostContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DataConnection")));
+           
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
             services.AddControllersWithViews();

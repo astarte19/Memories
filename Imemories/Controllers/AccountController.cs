@@ -39,17 +39,7 @@ namespace Imemories.Controllers
                 {
                     
                     await _signInManager.SignInAsync(user, false);
-                    //Создаем таблицу юзеру после успешной регистрации и входа
-                    var user_data = user.Email;
-                    string temp_email = user_data.Replace("@", string.Empty);
-                    string email = temp_email.Replace(".", string.Empty);
-                    SQLiteConnection USER = new SQLiteConnection("Data Source=UserData.db;");
-                    USER.Open();
-                    SQLiteCommand cart_table = USER.CreateCommand();
-                    cart_table.CommandText =
-                        $"CREATE TABLE IF NOT EXISTS {email} ( Id TEXT, ImagePath TEXT ,Text TEXT, AudioPath TEXT)";
-                    cart_table.ExecuteNonQuery();
-                    USER.Close();
+                   
                     return RedirectToAction("Index", "Home");
                 }
                 else

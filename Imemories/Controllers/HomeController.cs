@@ -19,8 +19,8 @@ namespace Imemories.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private  readonly UserManager<User> _userManager;
-        private readonly PostContext context;
-        public HomeController(ILogger<HomeController> logger, UserManager<User> userManager, PostContext context)
+        private readonly ApplicationContext context;
+        public HomeController(ILogger<HomeController> logger, UserManager<User> userManager, ApplicationContext context)
         {
             _logger = logger;
             _userManager = userManager;
@@ -29,12 +29,13 @@ namespace Imemories.Controllers
 
         public async Task<IActionResult> Index()
         {
-            IQueryable<Post> items = from i in context.PostList orderby i.Id select i;
-
-            List<Post> posts = await items.ToListAsync();
-           
+            string currentusr = User.FindFirstValue(ClaimTypes.NameIdentifier);
             
-            
+            IEnumerable<Post> posts = new List<Post>();
+            if (!string.IsNullOrEmpty(currentusr))
+            {
+                posts = context.Posts.Where(x => x.UserId == currentusr);
+            }
             return View(posts);
         }
         

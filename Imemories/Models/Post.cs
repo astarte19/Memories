@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Imemories.Models
@@ -6,7 +7,7 @@ namespace Imemories.Models
     public class Post
     {
         public int Id { get; set; }
-        [Required]
+       
         
         public string Title { get; set; }
         public string Text { get; set; }
@@ -16,6 +17,7 @@ namespace Imemories.Models
         
         public DateTime Time { get; set; }
         
-        //Add Date Time
+        public string UserId { get; set; }
+        public User? User { get; set; }
     }
 }
